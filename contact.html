@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126374168-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-126374168-1');
+    </script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>서울네이션즈교회 : Seoul Nations Presbyterian Church</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/business-casual.min.css" rel="stylesheet">
+
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=MI_b2ZlEdNF2UDoR99RX&submodules=geocoder"></script>
+
+    <link rel="shortcut icon" href="homepage_icon.ico">
+    <link rel="icon" type="image/gif" href="homepage_icon.gif">
+
+  </head>
+
+  <body>
+
+    <h1 class="site-heading text-center d-none d-lg-block">
+      <span class="site-heading-upper text-primary2 mb-3"><b>Seoul Nations Presbyterian Church</b></span>
+      <span class="site-heading-lower text-primary mb-3">서울네이션즈교회</span>
+    </h1>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">서울네이션즈교회(SNPC)</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="index.html">Home</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="about.html">About</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="greeting.html">Greeting</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="media.html">Media</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="gallery.html">Gallery</a>
+            </li>
+            <li class="nav-item active px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="contact.html">Contact
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <br>
+    <br>
+    <br>
+
+    <!-- Naver Map -->
+    <center>
+    <div id="map" style="width:90%;height:400px;"></div>
+    <script>
+      var map = new naver.maps.Map('map');
+      var myaddress = '한강대로 117';// 도로명 주소나 지번 주소만 가능 (건물명 불가!!!!)
+      naver.maps.Service.geocode({address: myaddress}, function(status, response) {
+          if (status !== naver.maps.Service.Status.OK) {
+              return alert(myaddress + '의 검색 결과가 없거나 기타 네트워크 에러');
+          }
+          var result = response.result;
+          // 검색 결과 갯수: result.total
+          // 첫번째 결과 결과 주소: result.items[0].address
+          // 첫번째 검색 결과 좌표: result.items[0].point.y, result.items[0].point.x
+          var myaddr = new naver.maps.Point(result.items[0].point.x, result.items[0].point.y);
+          map.setCenter(myaddr); // 검색된 좌표로 지도 이동
+          // 마커 표시
+          var marker = new naver.maps.Marker({
+            position: myaddr,
+            map: map
+          });
+          // 마커 클릭 이벤트 처리
+          naver.maps.Event.addListener(marker, "click", function(e) {
+            if (infowindow.getMap()) {
+                infowindow.close();
+            } else {
+                infowindow.open(map, marker);
+            }
+          });
+          // 마크 클릭시 인포윈도우 오픈
+          var infowindow = new naver.maps.InfoWindow({
+              content: '<h4> [네이버 개발자센터]</h4><a href="https://developers.naver.com" target="_blank"><img src="https://developers.naver.com/inc/devcenter/images/nd_img.png"></a>'
+          });
+      });
+      </script>
+      </center>
+
+      <br>
+      <br>
+      <br>
+
+    <section class="page-section about-heading">
+      <div class="container">
+         <div class="about-heading-content">
+          <div class="row">
+            <div class="col-xl-9 col-lg-10 mx-auto">
+              <div class="bg-faded rounded p-5">
+                <h2 class="section-heading mb-4">
+                  <span class="section-heading-upper">커뮤니티</span>
+                </h2>
+                <p class="mb-0"><a href="https://www.facebook.com/SNPC.kr/">Facebook </a>: 주보 광고 업로드</p>
+                <p class="mb-0"><a href="https://www.youtube.com/channel/UCuOpsLRE9kPbeLfPU9Vc-Gg">Youtube </a>: 오후 설교 영상 업로드</p>
+                <p class="mb-0"><a href="https://itunes.apple.com/kr/podcast/서울네이션즈교회-설교-snpc-worship/id1392846017?mt=2">Podcast </a>: 오후 설교 음성 업로드 (iOS 전용)</p>
+                <p class="mb-0"><a href="http://www.podbbang.com/ch/16866">PODBBANG </a>: 오후 설교 음성 업로드 (Android, PC 전용)</p>
+                <b>
+                <br>
+                <p class="mb-0">주소 : 서울특별시 용산구 한강대로 117, 3층</p>
+                <p class="mb-0">지하철 : 1호선 용산역 1번 출구 도보 10분, 4호선 신용산역 6번 출구 도보 2분</p>
+                <p class="mb-0">전화 : 02-793-0193</p>
+                <p class="mb-0">담임 사역자 : 남양규 목사 (010-9092-9598)</p>
+                <p class="mb-0">주일 예배 : 1부 오전 11시(한국어/영어), 2부 오후 2시(영어)</p>
+                </b>
+                <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+      <footer class="footer text-faded text-center py-5">
+        <div class="container">
+          <p>
+          04376 서울 용산구 한강대로 117 3층 &nbsp; <b>서울네이션즈교회</b> <br> <b>E-mail</b> : <a href="mailto:smcpc@naver.com"> smcpc@naver.com </a> &nbsp;&nbsp; <b>TEL</b> : 02-793-0193 <br><br> Copyright &copy; 서울네이션즈교회. &nbsp;&nbsp; All Rights reserved.
+          <br><br>
+          <a href="https://www.facebook.com/SNPC.kr/"><img src="img/Logo/facebook.jpg" width="35" height="35"></a>
+          &nbsp;&nbsp;&nbsp;
+          <a href="https://itunes.apple.com/kr/podcast/%EC%84%9C%EC%9A%B8%EB%84%A4%EC%9D%B4%EC%85%98%EC%A6%88%EA%B5%90%ED%9A%8C-%EC%84%A4%EA%B5%90-snpc-worship/id1392846017?mt=2"><img src="img/Logo/podcast.jpg" width="35" height="35"></a>
+          &nbsp;&nbsp;&nbsp;
+          <a href="http://www.podbbang.com/ch/16866"><img src="img/Logo/podbbang.jpg" width="35" height="35"></a>
+          &nbsp;&nbsp;&nbsp;
+          <a href="https://www.youtube.com/channel/UCuOpsLRE9kPbeLfPU9Vc-Gg"><img src="img/Logo/youtube.jpg" width="35" height="35"></a>
+          &nbsp;&nbsp;&nbsp;
+          <a href="index.html"><img src="img/Logo/korean.png" width="35" height="35"></a>
+          &nbsp;&nbsp;&nbsp;
+          <a href="index_eng.html"><img src="img/Logo/uk.png" width="35" height="35"></a>
+          </p>
+        </div>
+      </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>
